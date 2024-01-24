@@ -53,6 +53,11 @@
 				<version>3.14.0</version>
 			</dependency>
 			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-text</artifactId>
+				<version>1.11.0</version>
+			</dependency>
+			<dependency>
 				<groupId>commons-codec</groupId>
 				<artifactId>commons-codec</artifactId>
 				<version>1.16.0</version>
@@ -86,6 +91,11 @@
 			<dependency>
 				<groupId>org.apache.logging.log4j</groupId>
 				<artifactId>log4j-slf4j-impl</artifactId>
+				<version>${log4j2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-slf4j2-impl</artifactId>
 				<version>${log4j2.version}</version>
 			</dependency>
 			<dependency>
@@ -177,6 +187,31 @@
 				<groupId>com.strategicgains</groupId>
 				<artifactId>RestExpress</artifactId>
 				<version>0.11.3</version>
+				<exclusions>
+					<exclusion>
+    					<groupId>com.thoughtworks.xstream</groupId>
+    					<artifactId>xstream</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>com.thoughtworks.xstream</groupId>
+				<artifactId>xstream</artifactId>
+				<version>1.4.20</version>
+				<exclusions>
+					<exclusion>
+    					<groupId>dom4j</groupId>
+    					<artifactId>dom4j</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.codehaus.jettison</groupId>
+						<artifactId>jettison</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.jdom</groupId>
+						<artifactId>jdom2</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>com.codahale.metrics</groupId>
@@ -214,21 +249,9 @@
 				<version>2.3.1</version>
 			</dependency>
 			<dependency>
-				<groupId>javax.servlet</groupId>
-				<artifactId>javax.servlet-api</artifactId>
-				<version>4.0.1</version>
-				<!--scope>provided</scope -->
-			</dependency>
-			<dependency>
 				<groupId>com.sun.xml.ws</groupId>
 				<artifactId>jaxws-rt</artifactId>
 				<version>4.0.2</version>
-			</dependency>
-			<dependency>
-				<groupId>com.github.jsimone</groupId>
-				<artifactId>webapp-runner</artifactId>
-				<version>${githubwebapp.version}</version>
-				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.tuckey</groupId>
@@ -248,22 +271,50 @@
 			<dependency>
 				<groupId>org.jooq</groupId>
 				<artifactId>jooq</artifactId>
-				<version>3.19.2</version>
+				<version>3.19.3</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-fileupload</groupId>
+				<artifactId>commons-fileupload</artifactId>
+				<version>1.5</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>4.0.1</version>
+			</dependency>
+			<dependency>
+				<groupId>com.googlecode.gettext-commons</groupId>
+				<artifactId>gettext-commons</artifactId>
+				<version>0.9.8</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.zxing</groupId>
+				<artifactId>core</artifactId>
+				<version>3.5.2</version>
+			</dependency>
+			<dependency>
+				<groupId>jakarta.servlet</groupId>
+				<artifactId>jakarta.servlet-api</artifactId>
+				<version>6.0.0</version>
 			</dependency>
 			<dependency>
 				<groupId>org.testcontainers</groupId>
 				<artifactId>mysql</artifactId>
 				<version>${testcontainers.version}</version>
+				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.testcontainers</groupId>
 				<artifactId>testcontainers</artifactId>
 				<version>${testcontainers.version}</version>
-	        	</dependency>
+				<scope>test</scope>
+	        </dependency>
 			<dependency>
 				<groupId>org.testcontainers</groupId>
 				<artifactId>junit-jupiter</artifactId>
 				<version>${testcontainers.version}</version>
+				<scope>test</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
