@@ -40,11 +40,28 @@ jobs:
           distribution: temurin
           java-version: 21
           cache: maven
+
+      - name: Configure Maven (release publishing)
+        if: github.event_name == 'release' || github.event.inputs.deploySnapshot != 'true'
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 21
           server-id: sonatype-oss-release
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
+
+      - name: Configure Maven (snapshot publishing)
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.deploySnapshot == 'true'
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 21
+          server-id: sonatype-oss-snapshots
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
 
       - name: Configure Git author
         run: |
@@ -132,7 +149,7 @@ jobs:
             exit 1
           fi
           git clean -fdx
-          mvn -B -ntp clean deploy -Psonatype-oss-release -DskipTests
+          mvn -B -ntp clean deploy -DskipTests
 
       - name: Deploy to Maven Central (tag-based release)
         if: github.event_name == 'release'
