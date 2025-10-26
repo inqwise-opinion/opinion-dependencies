@@ -10,9 +10,17 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Release version"
-        required: true
+        description: "Release version (required when deploySnapshot is false)"
+        required: false
         type: string
+      deploySnapshot:
+        description: "Deploy current SNAPSHOT build"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
 
 jobs:
   release:
@@ -44,11 +52,26 @@ jobs:
           git config --global user.name "GitHub Action"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
+      - name: Validate inputs
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          SNAPSHOT="${{ github.event.inputs.deploySnapshot }}"
+          VERSION="${{ github.event.inputs.version }}"
+          if [ "$SNAPSHOT" = "true" ]; then
+            echo "Deploying SNAPSHOT build"
+            exit 0
+          fi
+          if [ -z "$VERSION" ]; then
+            echo "Release version input is required when deploySnapshot is false."
+            exit 1
+          fi
+          echo "Preparing release v$VERSION"
+
       - name: Verify BOM build
         run: mvn -B -ntp clean install
 
       - name: Prepare and perform release (manual trigger)
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.deploySnapshot != 'true'
         env:
           MAVEN_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
@@ -65,11 +88,11 @@ jobs:
             -Darguments="-Psonatype-oss-release -DskipTests"
 
       - name: Push release commits
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.deploySnapshot != 'true'
         run: git push origin --follow-tags
 
       - name: Create GitHub release
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.deploySnapshot != 'true'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ github.event.inputs.version }}
@@ -94,6 +117,22 @@ jobs:
             ```
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy SNAPSHOT (manual trigger)
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.deploySnapshot == 'true'
+        env:
+          MAVEN_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          set -euo pipefail
+          VERSION=$(mvn -q -Dexec.skip=true help:evaluate -Dexpression=project.version -DforceStdout)
+          if [[ "$VERSION" != *-SNAPSHOT ]]; then
+            echo "Project version '$VERSION' is not a SNAPSHOT. Aborting."
+            exit 1
+          fi
+          git clean -fdx
+          mvn -B -ntp clean deploy -Psonatype-oss-release -DskipTests
 
       - name: Deploy to Maven Central (tag-based release)
         if: github.event_name == 'release'
