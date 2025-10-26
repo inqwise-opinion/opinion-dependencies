@@ -12,8 +12,52 @@
 	<artifactId>opinion-dependencies</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 
-	<name>Opinion Stack - Opinion components versions</name>
+	<name>Opinion Dependencies</name>
+	<description>Bill of materials that locks Opinion platform dependency versions</description>
 	<packaging>pom</packaging>
+	<url>https://github.com/inqwise/opinion-dependencies</url>
+
+	<organization>
+		<name>inqwise</name>
+	</organization>
+
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>alex-inqwise</id>
+			<name>Alex Misyuk</name>
+			<email>alex@inqwise.com</email>
+			<organization>inqwise</organization>
+			<organizationUrl>https://www.inqwise.com</organizationUrl>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:https://github.com/inqwise/opinion-dependencies.git</connection>
+		<developerConnection>scm:git:https://github.com/inqwise/opinion-dependencies.git</developerConnection>
+		<url>https://github.com/inqwise/opinion-dependencies</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>sonatype-oss-release</id>
+			<name>Central Repository</name>
+			<url>https://central.sonatype.com/api/v1/publisher</url>
+		</repository>
+		<snapshotRepository>
+			<id>sonatype-oss-snapshots</id>
+			<name>Central Repository Snapshots</name>
+			<url>https://central.sonatype.com/api/v1/publisher</url>
+		</snapshotRepository>
+	</distributionManagement>
 	
 	<properties>
 		<commons.lang.version>2.5</commons.lang.version>
@@ -330,4 +374,3 @@
 		</dependencies>
 	</dependencyManagement>
 </project>
-
