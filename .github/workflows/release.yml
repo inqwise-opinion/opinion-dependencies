@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Release version (major only, e.g. 2)"
+        description: "Release version"
         required: true
         type: string
 
@@ -92,8 +92,6 @@ jobs:
               </dependencies>
             </dependencyManagement>
             ```
-
-            *Next development version: $(( ${{ github.event.inputs.version }} + 1 ))-SNAPSHOT*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
