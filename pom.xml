@@ -18,7 +18,7 @@
 	<description
     >Bill of materials that locks Opinion platform dependency versions</description>
 	<packaging>pom</packaging>
-	<url>https://github.com/inqwise/opinion-dependencies</url>
+	<url>https://github.com/inqwise-opinion/opinion-dependencies</url>
 
 	<organization>
 		<name>inqwise</name>
@@ -44,10 +44,10 @@
 
 	<scm>
 		<connection
-        >scm:git:https://github.com/inqwise/opinion-dependencies.git</connection>
+        >scm:git:https://github.com/inqwise-opinion/opinion-dependencies.git</connection>
 		<developerConnection
-        >scm:git:https://github.com/inqwise/opinion-dependencies.git</developerConnection>
-		<url>https://github.com/inqwise/opinion-dependencies</url>
+        >scm:git:https://github.com/inqwise-opinion/opinion-dependencies.git</developerConnection>
+		<url>https://github.com/inqwise-opinion/opinion-dependencies</url>
 		<tag>HEAD</tag>
 	</scm>
 
