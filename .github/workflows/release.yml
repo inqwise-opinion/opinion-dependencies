@@ -150,7 +150,7 @@ jobs:
           fi
           git clean -fdx
           mvn -B -ntp clean deploy -DskipTests -Dcentral.skip=true \
-            -DaltDeploymentRepository=sonatype-oss-snapshots::default::https://s01.oss.sonatype.org/content/repositories/snapshots/
+            -DaltDeploymentRepository=sonatype-oss-snapshots::default::https://central.sonatype.com/repository/maven-snapshots/
 
       - name: Deploy to Maven Central (tag-based release)
         if: github.event_name == 'release'
