@@ -1,8 +1,6 @@
 # Opinion Dependencies
 
 [![CI](https://github.com/inqwise-opinion/opinion-dependencies/actions/workflows/ci.yml/badge.svg)](https://github.com/inqwise-opinion/opinion-dependencies/actions/workflows/ci.yml)
-[![Release](https://img.shields.io/github/v/release/inqwise-opinion/opinion-dependencies?display_name=tag&label=Release&sort=semver)](https://github.com/inqwise-opinion/opinion-dependencies/releases/latest)
-[![Release Date](https://img.shields.io/github/release-date/inqwise-opinion/opinion-dependencies?label=Release%20Date)](https://github.com/inqwise-opinion/opinion-dependencies/releases/latest)
 [![Maven Central](https://img.shields.io/maven-central/v/com.inqwise.opinion/opinion-dependencies.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/com.inqwise.opinion/opinion-dependencies)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Snapshot](https://img.shields.io/badge/dynamic/xml?color=informational&label=Snapshot&query=%2F%2Fmetadata%2Fversioning%2Fversions%2Fversion%5Blast()&url=https%3A%2F%2Fcentral.sonatype.com%2Frepository%2Fmaven-snapshots%2Fcom%2Finqwise%2Fopinion%2Fopinion-dependencies%2Fmaven-metadata.xml)](https://central.sonatype.com/repository/maven-snapshots/com/inqwise/opinion/opinion-dependencies)
