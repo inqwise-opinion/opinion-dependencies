@@ -5,8 +5,8 @@
 [![Release Date](https://img.shields.io/github/release-date/inqwise-opinion/opinion-dependencies?label=Release%20Date)](https://github.com/inqwise-opinion/opinion-dependencies/releases/latest)
 [![Maven Central](https://img.shields.io/maven-central/v/com.inqwise.opinion/opinion-dependencies.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/com.inqwise.opinion/opinion-dependencies)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![Snapshot](https://img.shields.io/badge/dynamic/xml?color=informational&label=Snapshot&query=%2F%2Fmetadata%2Fversioning%2FsnapshotVersions%2FsnapshotVersion%5Bextension%3D%27pom%27%5D%5Bposition()%3Dlast()%5D%2Fvalue&url=https%3A%2F%2Fcentral.sonatype.com%2Frepository%2Fmaven-snapshots%2Fcom%2Finqwise%2Fopinion%2Fopinion-dependencies%2Fmaven-metadata.xml)](https://central.sonatype.com/repository/maven-snapshots/com/inqwise/opinion/opinion-dependencies)
-[![Snapshot Published](https://img.shields.io/badge/dynamic/xml?color=blue&label=Snapshot%20Published&query=%2F%2Fmetadata%2Fversioning%2FsnapshotVersions%2FsnapshotVersion%5Bextension%3D%27pom%27%5D%5Bposition()%3Dlast()%5D%2Fupdated&url=https%3A%2F%2Fcentral.sonatype.com%2Frepository%2Fmaven-snapshots%2Fcom%2Finqwise%2Fopinion%2Fopinion-dependencies%2Fmaven-metadata.xml)](https://central.sonatype.com/repository/maven-snapshots/com/inqwise/opinion/opinion-dependencies)
+[![Snapshot](https://img.shields.io/badge/dynamic/xml?color=informational&label=Snapshot&query=%2F%2Fmetadata%2Fversioning%2Fversions%2Fversion%5Blast()&url=https%3A%2F%2Fcentral.sonatype.com%2Frepository%2Fmaven-snapshots%2Fcom%2Finqwise%2Fopinion%2Fopinion-dependencies%2Fmaven-metadata.xml)](https://central.sonatype.com/repository/maven-snapshots/com/inqwise/opinion/opinion-dependencies)
+[![Snapshot Published](https://img.shields.io/badge/dynamic/xml?color=blue&label=Snapshot%20Published&query=%2F%2Fmetadata%2Fversioning%2FlastUpdated&url=https%3A%2F%2Fcentral.sonatype.com%2Frepository%2Fmaven-snapshots%2Fcom%2Finqwise%2Fopinion%2Fopinion-dependencies%2Fmaven-metadata.xml)](https://central.sonatype.com/repository/maven-snapshots/com/inqwise/opinion/opinion-dependencies)
 
 Bill of materials that pins dependency versions across the Opinion platform services and libraries.
 
@@ -40,7 +40,7 @@ Import the BOM using Maven's dependency management scope:
 Use Java 17 for everyday development and Java 21 during Sonatype releases.
 
 ### Badge Details
-- Snapshot badges index into Sonatype's live Maven metadata using Shields.io's XPath support to pick the newest `pom` snapshot entry (`[position()=last()]`), so every render reflects the most recent deployment—nothing is hardcoded. If the `central.sonatype.com` snapshot endpoint temporarily restricts anonymous reads, swap the badge URLs to the legacy host `https://s01.oss.sonatype.org/content/repositories/snapshots/...` to keep them functional.
+- Snapshot badges read Sonatype's `maven-metadata.xml` directly using Shields.io's dynamic XML endpoint: one for the latest SNAPSHOT version (`//metadata/versioning/versions/version[last()]`), and one for the last publish timestamp (`//metadata/versioning/lastUpdated`). If `central.sonatype.com` ever requires tokens for that metadata, switch the badge URLs to `https://s01.oss.sonatype.org/content/repositories/snapshots/...` to keep them working.
 - Release badges rely on GitHub releases: the version badge shows the latest semver tag, and the release-date badge reflects when that tag was published.
 
 ## More Resources
