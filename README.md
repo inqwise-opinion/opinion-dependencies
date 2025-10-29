@@ -3,8 +3,8 @@
 [![CI](https://github.com/inqwise-opinion/opinion-dependencies/actions/workflows/ci.yml/badge.svg)](https://github.com/inqwise-opinion/opinion-dependencies/actions/workflows/ci.yml)
 [![Maven Central](https://img.shields.io/maven-central/v/com.inqwise.opinion/opinion-dependencies.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/com.inqwise.opinion/opinion-dependencies)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![Snapshot](https://img.shields.io/badge/dynamic/xml?color=orange&label=Latest%20Snapshot&query=%2F%2Fmetadata%2Fversioning%2Fversions%2Fversion%5Blast()%5D&url=https%3A%2F%2Fcentral.sonatype.com%2Frepository%2Fmaven-snapshots%2Fcom%2Finqwise%2Fopinion%2Fopinion-dependencies%2Fmaven-metadata.xml)]
-[![Snapshot Published](https://img.shields.io/badge/dynamic/xml?color=blue&label=Snapshot%20Published&query=%2F%2Fmetadata%2Fversioning%2FlastUpdated&url=https%3A%2F%2Fcentral.sonatype.com%2Frepository%2Fmaven-snapshots%2Fcom%2Finqwise%2Fopinion%2Fopinion-dependencies%2Fmaven-metadata.xml)]
+[![Snapshot](https://img.shields.io/badge/dynamic/xml?color=orange&label=Latest%20Snapshot&query=%2F%2Fmetadata%2Fversioning%2Fversions%2Fversion%5Blast()%5D&url=https%3A%2F%2Fcentral.sonatype.com%2Frepository%2Fmaven-snapshots%2Fcom%2Finqwise%2Fopinion%2Fopinion-dependencies%2Fmaven-metadata.xml)](https://central.sonatype.com/repository/maven-snapshots/com/inqwise/opinion/opinion-dependencies)
+[![Snapshot Published](https://img.shields.io/badge/dynamic/xml?color=blue&label=Snapshot%20Published&query=%2F%2Fmetadata%2Fversioning%2FlastUpdated&url=https%3A%2F%2Fcentral.sonatype.com%2Frepository%2Fmaven-snapshots%2Fcom%2Finqwise%2Fopinion%2Fopinion-dependencies%2Fmaven-metadata.xml)](https://central.sonatype.com/repository/maven-snapshots/com/inqwise/opinion/opinion-dependencies)
 
 Bill of materials that pins dependency versions across the Opinion platform services and libraries.
 
