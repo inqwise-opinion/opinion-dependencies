@@ -97,6 +97,11 @@
 				<scope>import</scope>
 			</dependency>
 			<dependency>
+				<groupId>com.inqwise</groupId>
+				<artifactId>inqwise-errors</artifactId>
+				<version>1.2.1</version>
+			</dependency>
+			<dependency>
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-lang3</artifactId>
 				<version>3.20.0</version>
