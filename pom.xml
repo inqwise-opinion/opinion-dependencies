@@ -8,15 +8,14 @@
 	<parent>
 		<groupId>com.inqwise.opinion</groupId>
 		<artifactId>opinion-parent</artifactId>
-		<version>7</version>
+		<version>8</version>
 	</parent>
 
 	<artifactId>opinion-dependencies</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 
 	<name>Opinion Dependencies</name>
-	<description
-    >Bill of materials that locks Opinion platform dependency versions</description>
+	<description>Bill of materials that locks Opinion platform dependency versions</description>
 	<packaging>pom</packaging>
 	<url>https://github.com/inqwise-opinion/opinion-dependencies</url>
 
