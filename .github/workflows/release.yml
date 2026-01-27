@@ -96,7 +96,7 @@ jobs:
         run: |
           set -euo pipefail
           RELEASE="${{ github.event.inputs.version }}"
-          NEXT=$((RELEASE + 1))
+          NEXT=$(echo ${{ github.event.inputs.version }} | awk -F. '{$NF = $NF + 1; print}' OFS=.)
           git clean -fdx
           mvn -B -ntp release:clean release:prepare release:perform \
             -DreleaseVersion="$RELEASE" \
