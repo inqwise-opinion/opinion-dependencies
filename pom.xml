@@ -60,7 +60,7 @@
 	<properties>
 		<commons.lang.version>2.5</commons.lang.version>
 		<guava.version>33.5.0-jre</guava.version>
-		<mysql.version>9.5.0</mysql.version>
+		<mysql.version>9.6.0</mysql.version>
 		<json.version>20250517</json.version>
 		<log4j2.version>2.25.3</log4j2.version>
 		<jaxb.version>4.0.4</jaxb.version>
